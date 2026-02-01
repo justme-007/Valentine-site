@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>You Said Yes ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fff, #ffe6eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 35px;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+h1 {
+  color: #ff4d6d;
+}
+
+p {
+  color: #444;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>You said YES 😭❤️</h1>
+
+  <p>
+    Thank you for saying Yes to me.<br><br>
+    I don’t promise perfection,<br>
+    but I promise effort, honesty,<br>
+    laughter, and love.
+    <br><br>
+    Happy Valentine’s Day,<br>
+    my favorite person 💐
+  </p>
+</div>
+
+<audio id="bgMusic" loop autoplay>
+  <source src="Allofme.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+/* Resume music automatically */
+if (sessionStorage.getItem("playMusic") === "yes") {
+  music.play().catch(() => {
+    document.addEventListener("click", () => music.play(), { once: true });
+  });
+}
+</script>
+
+<script>
+music.volume = 0;
+let fade = setInterval(() => {
+  if (music.volume < 1) {
+    music.volume += 0.05;
+  } else {
+    clearInterval(fade);
+  }
+}, 200);
+</script>
+
+</body>
+</html>
